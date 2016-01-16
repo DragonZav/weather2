@@ -12,11 +12,11 @@ import Alamofire
 
 class CurrentWeather {
     
-    let dateFormatter = NSDateFormatter()
+    private let _dateFormatter = NSDateFormatter()
     
     // URL
     private var _url: NSURL
-    private var _iconId: String!
+    
     
     // Location
     private var _cityName: String!
@@ -32,6 +32,8 @@ class CurrentWeather {
     private var _temp: Float!
     private var _pressure: Int!
     private var _summary: String!
+    private var _iconId: String!
+    
     
     // Time
     private var _sunset: Int!
@@ -144,8 +146,8 @@ class CurrentWeather {
         let date = NSDate(timeIntervalSince1970: unixTime)
         
         // Returns Date Formatted as 12 Hour Time.
-        dateFormatter.dateFormat = "hh:mm a"
-        return dateFormatter.stringFromDate(date)
+        _dateFormatter.dateFormat = "hh:mm a"
+        return _dateFormatter.stringFromDate(date)
     }    
     
     func downloadWeatherDetails(completed: DownloadComplete) {

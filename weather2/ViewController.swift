@@ -13,11 +13,13 @@ class ViewController: UIViewController {
     var currentWeather = CurrentWeather(city: "Yelm")
     
    @IBOutlet weak var weatherIcon: UIImageView!
-    
+   @IBOutlet weak var tableView: UITableView!
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.backgroundView = BackgroundView()
         
         currentWeather.downloadWeatherDetails { () -> () in
           print("Download Completed")
