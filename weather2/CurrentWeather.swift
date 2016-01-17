@@ -27,9 +27,9 @@ class CurrentWeather {
     
     // Weather
     private var _humidity: Int!
-    private var _tempMax: Float!
-    private var _tempMin: Float!
-    private var _temp: Float!
+    private var _tempMax: Double!
+    private var _tempMin: Double!
+    private var _temp: Double!
     private var _pressure: Int!
     private var _summary: String!
     private var _iconId: String!
@@ -87,21 +87,21 @@ class CurrentWeather {
         if _tempMax == nil {
             return ""
         }
-        return convertKToF(_tempMax)
+        return convertKtoF(_tempMax)
     }
     
     var tempMin: String {
         if _tempMin == nil {
             return ""
         }
-        return convertKToF(_tempMin)
+        return convertKtoF(_tempMin)
     }
     
     var temp: String {
         if _temp == nil {
             return ""
         }
-        return convertKToF(_temp)
+        return convertKtoF(_temp)
     }
     
     var pressure: String {
@@ -135,12 +135,8 @@ class CurrentWeather {
     
     init(city: String) {
         _url = NSURL(string: "\(URL_BASE)\(URL_CITYNAME)\(city)\(API_KEY)")!
-    }
+    }   
     
-    // Convert degrees in Kelvin to Fahrenheit and return as a String
-    func convertKToF(kelvin: Float) -> String {
-        return "\(kelvin * 9/5 - 459.67)"
-    }
     
     func timeStringFromUnixTime(unixTime: Double) -> String {
         let date = NSDate(timeIntervalSince1970: unixTime)
@@ -164,10 +160,13 @@ class CurrentWeather {
                     self._lat = json["coord"]["lat"].float
                     
                     self._humidity = json["main"]["humidity"].int
-                    self._tempMax = json["main"]["temp_max"].float
-                    self._tempMin = json["main"]["temp_min"].float
-                    self._temp = json["main"]["temp"].float
-                    self._pressure = json["main"]["temp_max"].int
+                   
+                    self._tempMax = json["main"]["temp_max"].doubleValue
+                    self._tempMin = json["main"]["temp_min"].doubleValue
+                    self._temp = json["main"]["temp"].doubleValue
+                   
+                    
+                    self._pressure = json["main"]["pressure"].int
                     
                     self._sunrise = json["sys"]["sunrise"].int
                     self._sunset = json["sys"]["sunset"].int

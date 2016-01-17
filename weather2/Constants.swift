@@ -15,3 +15,11 @@ let URL_CITYID = "/data/2.5/weather?id="
 let API_KEY = "&APPID=d5dfbbca97307e254653f9c8ac59fd2b"
 
 public typealias DownloadComplete = () -> ()
+
+
+// Convert degrees in Kelvin to Fahrenheit and return as a String
+func convertKtoF(kelvin: Double) -> String {
+    
+    return "\(Int(round((((kelvin * 9) / 5) - 459.67))))"
+}
+

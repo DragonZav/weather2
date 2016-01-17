@@ -3,9 +3,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Auggie Doggie's Weather Forecast-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="weather2" customModuleProvider="target" sceneMemberID="viewController">
@@ -13,108 +14,402 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="BackgroundView" customModule="weather2" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="89" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wI8-Bf-lcv">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="FsO-nI-ECo">
+                                <rect key="frame" x="242" y="104" width="117" height="52"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="2pk-hR-fVk">
+                                        <rect key="frame" x="0.0" y="0.0" width="117" height="51.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yelm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="595-sq-PKZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="117" height="35.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="117" id="Lo5-qL-OYn"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <size key="shadowOffset" width="-1" height="-1"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WASHINGTON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tW5-uO-idV">
+                                                <rect key="frame" x="0.0" y="36.5" width="117" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="117" id="uT1-Ed-6gX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <size key="shadowOffset" width="-1" height="-1"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="odg-vy-bdW">
+                                <rect key="frame" x="171" y="171" width="259" height="92"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="10d" translatesAutoresizingMaskIntoConstraints="NO" id="lub-S8-rvg">
+                                        <rect key="frame" x="0.0" y="0.0" width="88" height="92"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="88" id="ndv-D9-TfA"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2f-cH-l4q">
+                                        <rect key="frame" x="89" y="0.0" width="170" height="92"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="170" id="z6k-C4-dIg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="80"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <size key="shadowOffset" width="-1" height="-1"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="aye-ZK-bQc">
+                                <rect key="frame" x="127" y="319" width="346" height="40"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ISd-Wv-7Mg">
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="40"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thermometer-50" translatesAutoresizingMaskIntoConstraints="NO" id="r3L-bC-adD">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="CD9-8w-5yi"/>
+                                                    <constraint firstAttribute="width" constant="30" id="eyd-Pn-O7P">
+                                                        <variation key="widthClass=compact" constant="20"/>
+                                                    </constraint>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valueBox" translatesAutoresizingMaskIntoConstraints="NO" id="Pa7-7B-wn5">
+                                                <rect key="frame" x="30" y="0.0" width="55" height="40"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="hbr-Ac-VN1">
+                                        <rect key="frame" x="86" y="0.0" width="86" height="40"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pressure" translatesAutoresizingMaskIntoConstraints="NO" id="169-HG-Yqs">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Fxu-F7-h4t"/>
+                                                    <constraint firstAttribute="width" constant="30" id="vuP-kt-2iF">
+                                                        <variation key="widthClass=compact" constant="20"/>
+                                                    </constraint>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valueBox" translatesAutoresizingMaskIntoConstraints="NO" id="vdn-g3-zUj">
+                                                <rect key="frame" x="31" y="0.0" width="55" height="40"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="th2-of-x7N">
+                                        <rect key="frame" x="173" y="0.0" width="86" height="40"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wind Gauge-48" translatesAutoresizingMaskIntoConstraints="NO" id="lNF-ez-jHQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="kEx-y5-ydc"/>
+                                                    <constraint firstAttribute="width" constant="30" id="rNi-Jq-SIn">
+                                                        <variation key="widthClass=compact" constant="20"/>
+                                                    </constraint>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valueBox" translatesAutoresizingMaskIntoConstraints="NO" id="jHv-BO-Av8">
+                                                <rect key="frame" x="31" y="0.0" width="55" height="40"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="CbJ-Zw-IMn">
+                                        <rect key="frame" x="260" y="0.0" width="86" height="40"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hygrometer-48" translatesAutoresizingMaskIntoConstraints="NO" id="P9f-UE-hLE">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="ejq-Q1-V7v">
+                                                        <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="height" constant="40" id="xp0-7q-pSq"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valueBox" translatesAutoresizingMaskIntoConstraints="NO" id="90P-vF-5Ps">
+                                                <rect key="frame" x="31" y="0.0" width="55" height="40"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="a4Y-rt-2Lh">
+                                <rect key="frame" x="172" y="325" width="26" height="28"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↑100°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLG-7B-wHj">
+                                        <rect key="frame" x="0.0" y="0.0" width="26" height="11.5"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↓100°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GtK-vg-WeV">
+                                        <rect key="frame" x="0.0" y="16.5" width="26" height="11.5"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Xp2-vM-eWV">
+                                <rect key="frame" x="526" y="545" width="54" height="35"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sunrise-48" translatesAutoresizingMaskIntoConstraints="NO" id="AuK-zz-SXd">
+                                        <rect key="frame" x="17" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="u1s-Dz-wxN"/>
+                                            <constraint firstAttribute="height" constant="20" id="uOM-sl-VbS"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07:51 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phU-qL-gLG">
+                                        <rect key="frame" x="0.0" y="20" width="54" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="54" id="CO2-1I-XnL"/>
+                                            <constraint firstAttribute="height" constant="15" id="b8n-Vp-rZK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CaI-LS-2eg">
+                                <rect key="frame" x="20" y="545" width="54" height="35"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sunset-48" translatesAutoresizingMaskIntoConstraints="NO" id="FYG-W0-b0v">
+                                        <rect key="frame" x="17" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="9kS-pV-dYv"/>
+                                            <constraint firstAttribute="width" constant="20" id="RzY-iH-4dw"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04:51 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yrf-xF-Lto">
+                                        <rect key="frame" x="0.0" y="20" width="54" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="54" id="OgW-bL-ukF"/>
+                                            <constraint firstAttribute="height" constant="15" id="yuO-y5-XWD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kYq-dF-O7j">
+                                <rect key="frame" x="424" y="322" width="43" height="33"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXL-Fx-O69">
+                                        <rect key="frame" x="0.0" y="0.0" width="43" height="11.5"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mE-0k-Pfi">
+                                        <rect key="frame" x="0.0" y="21.5" width="43" height="11.5"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MvY-qn-ipK">
+                                <rect key="frame" x="260" y="322" width="23" height="33"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hPa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQM-Ye-aCh">
+                                        <rect key="frame" x="0.0" y="0.0" width="23" height="11.5"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOL-ee-00F">
+                                        <rect key="frame" x="0.0" y="21.5" width="23" height="11.5"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Eok-PI-OYB">
+                                <rect key="frame" x="347" y="322" width="24" height="33"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MPH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h50-bS-khG">
+                                        <rect key="frame" x="0.0" y="0.0" width="24" height="11.5"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wem-2s-StE">
+                                        <rect key="frame" x="0.0" y="21.5" width="24" height="11.5"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ktn-tp-O23">
+                                <rect key="frame" x="0.0" y="376" width="600" height="84"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="536" id="lso-K0-ekV"/>
-                                    <constraint firstAttribute="width" constant="600" id="sqO-y6-Z3l"/>
+                                    <constraint firstAttribute="height" constant="84" id="1HX-OC-Zwl"/>
                                 </constraints>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="JXA-Fz-NQO">
-                                    <rect key="frame" x="0.0" y="64" width="600" height="111"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="FsO-nI-ECo">
-                                            <rect key="frame" x="241" y="8" width="119" height="81"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DailyCell" rowHeight="88" id="da9-VR-IeS" customClass="DailyCell" customModule="weather2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="88"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="da9-VR-IeS" id="b9V-H1-HuH">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="88"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fT1-q6-mbj">
-                                                    <rect key="frame" x="0.0" y="0.0" width="119" height="60"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CHy-W0-2Jx">
+                                                    <rect key="frame" x="153" y="2" width="295" height="50"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01d" translatesAutoresizingMaskIntoConstraints="NO" id="GZ8-pM-bTU">
-                                                            <rect key="frame" x="0.0" y="0.0" width="58" height="60"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="58" id="KSy-wr-qII"/>
-                                                                <constraint firstAttribute="height" constant="60" id="zja-LN-IvJ"/>
-                                                            </constraints>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="1zL-fz-cR1">
+                                                            <rect key="frame" x="0.0" y="0.0" width="46" height="50"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="J2T-vg-2gn">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="46" height="20.5"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4s-IE-IjL">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="36.5" height="20.5"/>
+                                                                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                            <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                            <size key="shadowOffset" width="-1" height="-1"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxa-4c-PPf">
+                                                                            <rect key="frame" x="37.5" y="0.0" width="8.5" height="20.5"/>
+                                                                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
+                                                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4b-Z1-jdX">
+                                                                    <rect key="frame" x="0.0" y="24.5" width="46" height="1"/>
+                                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="1" id="mr4-BD-eLa"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dha-b1-UBG">
+                                                                    <rect key="frame" x="0.0" y="29.5" width="46" height="20.5"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WW-Pg-EO5">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="36.5" height="20.5"/>
+                                                                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                            <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                            <size key="shadowOffset" width="-1" height="-1"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↓" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOr-YI-yWr">
+                                                                            <rect key="frame" x="37.5" y="0.0" width="8.5" height="20.5"/>
+                                                                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
+                                                                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="13n" translatesAutoresizingMaskIntoConstraints="NO" id="Blv-Iq-gVv">
+                                                            <rect key="frame" x="66" y="0.0" width="50" height="50"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="56°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5W-ij-667">
-                                                            <rect key="frame" x="58" y="9" width="61" height="43"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="61" id="315-dS-Emx"/>
-                                                                <constraint firstAttribute="height" constant="43" id="8Y8-hv-Pd9"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="36"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yNL-fz-j4C">
+                                                            <rect key="frame" x="136" y="0.0" width="159.5" height="50"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Sunday, January 16, 2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwE-Jp-w5z">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="159.5" height="35"/>
+                                                                    <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="14"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <size key="shadowOffset" width="-1" height="-1"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partly Coudy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9N-od-gSl">
+                                                                    <rect key="frame" x="0.0" y="35" width="159.5" height="15"/>
+                                                                    <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="12"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <size key="shadowOffset" width="-1" height="-1"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yelm, WA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="595-sq-PKZ">
-                                                    <rect key="frame" x="1" y="67" width="117" height="14"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="117" id="Lo5-qL-OYn"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="12"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
-                                        </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity: 100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0a-j5-cTG">
-                                            <rect key="frame" x="8" y="89" width="88" height="14"/>
-                                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="12"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↑ 100% 100% ↓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GtK-vg-WeV">
-                                            <rect key="frame" x="511" y="89" width="81" height="14"/>
-                                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="12"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="FsO-nI-ECo" firstAttribute="top" secondItem="JXA-Fz-NQO" secondAttribute="top" constant="8" id="5DI-6T-sXL"/>
-                                        <constraint firstItem="FsO-nI-ECo" firstAttribute="centerX" secondItem="JXA-Fz-NQO" secondAttribute="centerX" id="dOi-ud-f0l"/>
-                                        <constraint firstAttribute="bottom" secondItem="GtK-vg-WeV" secondAttribute="bottom" constant="8" id="hkh-1o-b4Q"/>
-                                        <constraint firstAttribute="trailing" secondItem="GtK-vg-WeV" secondAttribute="trailing" constant="8" id="lVn-Jh-VkM"/>
-                                        <constraint firstAttribute="bottom" secondItem="L0a-j5-cTG" secondAttribute="bottom" constant="8" id="pnb-0F-Xvy"/>
-                                        <constraint firstItem="L0a-j5-cTG" firstAttribute="leading" secondItem="JXA-Fz-NQO" secondAttribute="leading" constant="8" id="tam-H9-bCX"/>
-                                    </constraints>
-                                </view>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="89" id="vmi-Hh-QSi">
-                                        <rect key="frame" x="0.0" y="203" width="600" height="89"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vmi-Hh-QSi" id="1Py-JS-bAu">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <constraints>
+                                                <constraint firstItem="CHy-W0-2Jx" firstAttribute="centerX" secondItem="b9V-H1-HuH" secondAttribute="centerX" id="Myt-jR-IJb"/>
+                                                <constraint firstItem="CHy-W0-2Jx" firstAttribute="top" secondItem="b9V-H1-HuH" secondAttribute="top" constant="2" id="nbE-Hd-ACZ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dateLbl" destination="xwE-Jp-w5z" id="3cn-od-UTf"/>
+                                            <outlet property="summaryLbl" destination="h9N-od-gSl" id="Hbh-HG-I7I"/>
+                                            <outlet property="tempMaxLbl" destination="A4s-IE-IjL" id="I5q-Am-NnY"/>
+                                            <outlet property="tempMinLbl" destination="4WW-Pg-EO5" id="amM-Gz-hiE"/>
+                                            <outlet property="weatherIcon" destination="Blv-Iq-gVv" id="kgx-hK-c3s"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YbT-SE-GTU">
+                                <rect key="frame" x="20" y="367" width="560" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="bgK-KQ-fli"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wI8-Bf-lcv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="285-3a-fNA"/>
-                            <constraint firstItem="wI8-Bf-lcv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="AHT-o2-GBs"/>
-                            <constraint firstAttribute="trailing" secondItem="wI8-Bf-lcv" secondAttribute="trailing" id="Vnv-Z6-0Df"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wI8-Bf-lcv" secondAttribute="bottom" id="yBF-C6-zSg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CaI-LS-2eg" secondAttribute="bottom" constant="20" id="56j-AR-q8V"/>
+                            <constraint firstItem="FsO-nI-ECo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="A2U-Ir-2Yr"/>
+                            <constraint firstItem="aye-ZK-bQc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BpS-nJ-zkV"/>
+                            <constraint firstItem="odg-vy-bdW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DHJ-FE-N9g"/>
+                            <constraint firstAttribute="trailing" secondItem="Ktn-tp-O23" secondAttribute="trailing" id="EvB-iR-uIy"/>
+                            <constraint firstItem="a4Y-rt-2Lh" firstAttribute="centerX" secondItem="Pa7-7B-wn5" secondAttribute="centerX" id="GFH-HQ-djw"/>
+                            <constraint firstItem="odg-vy-bdW" firstAttribute="top" secondItem="FsO-nI-ECo" secondAttribute="bottom" constant="15" id="J3b-IN-V3R"/>
+                            <constraint firstItem="CaI-LS-2eg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Lba-Yw-YYe"/>
+                            <constraint firstItem="a4Y-rt-2Lh" firstAttribute="centerY" secondItem="Pa7-7B-wn5" secondAttribute="centerY" id="SNW-f0-L1m"/>
+                            <constraint firstItem="YbT-SE-GTU" firstAttribute="top" secondItem="aye-ZK-bQc" secondAttribute="bottom" constant="8" id="UO1-D7-y2m"/>
+                            <constraint firstItem="YbT-SE-GTU" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="UeF-ju-B5w"/>
+                            <constraint firstItem="FsO-nI-ECo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XxL-jy-zBi"/>
+                            <constraint firstItem="Ktn-tp-O23" firstAttribute="top" secondItem="YbT-SE-GTU" secondAttribute="bottom" constant="8" id="dG1-UO-bvZ"/>
+                            <constraint firstItem="kYq-dF-O7j" firstAttribute="centerX" secondItem="90P-vF-5Ps" secondAttribute="centerX" id="dpL-bx-5bU"/>
+                            <constraint firstItem="Eok-PI-OYB" firstAttribute="centerX" secondItem="jHv-BO-Av8" secondAttribute="centerX" id="hW6-9F-d8t"/>
+                            <constraint firstItem="Eok-PI-OYB" firstAttribute="centerY" secondItem="jHv-BO-Av8" secondAttribute="centerY" id="iOx-9z-Bvg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ktn-tp-O23" secondAttribute="bottom" constant="140" id="nx2-RI-XgT"/>
+                            <constraint firstItem="Ktn-tp-O23" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pp2-af-Ng0"/>
+                            <constraint firstAttribute="trailing" secondItem="Xp2-vM-eWV" secondAttribute="trailing" constant="20" id="rQV-bl-wxQ"/>
+                            <constraint firstItem="MvY-qn-ipK" firstAttribute="centerY" secondItem="vdn-g3-zUj" secondAttribute="centerY" id="rTa-MF-gB9"/>
+                            <constraint firstItem="kYq-dF-O7j" firstAttribute="centerY" secondItem="90P-vF-5Ps" secondAttribute="centerY" id="ueX-cM-zMz"/>
+                            <constraint firstItem="MvY-qn-ipK" firstAttribute="centerX" secondItem="vdn-g3-zUj" secondAttribute="centerX" id="vhh-wr-Xi1"/>
+                            <constraint firstItem="YbT-SE-GTU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="y2p-U5-1fV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Xp2-vM-eWV" secondAttribute="bottom" constant="20" id="y9a-BX-wky"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Auggie Doggie's Weather Forecast" id="x0b-Cq-jnj"/>
+                    <navigationItem key="navigationItem" id="x0b-Cq-jnj"/>
                     <connections>
-                        <outlet property="tableView" destination="wI8-Bf-lcv" id="LJz-Xn-iwd"/>
-                        <outlet property="weatherIcon" destination="GZ8-pM-bTU" id="aeg-Wz-Ipo"/>
+                        <outlet property="tableView" destination="Ktn-tp-O23" id="q2e-WQ-3V5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1328" y="360"/>
+            <point key="canvasLocation" x="1325" y="360"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dm8-gX-vjV">
@@ -137,6 +432,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="01d" width="50" height="50"/>
+        <image name="10d" width="50" height="50"/>
+        <image name="13n" width="50" height="50"/>
+        <image name="Hygrometer-48" width="48" height="48"/>
+        <image name="Sunrise-48" width="48" height="48"/>
+        <image name="Sunset-48" width="48" height="48"/>
+        <image name="Thermometer-50" width="50" height="50"/>
+        <image name="Wind Gauge-48" width="48" height="48"/>
+        <image name="pressure" width="48" height="48"/>
+        <image name="valueBox" width="55" height="47"/>
     </resources>
 </document>
