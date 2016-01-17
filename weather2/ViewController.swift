@@ -12,15 +12,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     
     
-   @IBOutlet weak var weatherIcon: UIImageView!
-   
+    @IBOutlet weak var weatherIcon: UIImageView!
     
+    
+    @IBOutlet weak var tempMaxLbl: UILabel!
+    @IBOutlet weak var tempMinLbl: UILabel!
+    
+    @IBOutlet weak var hPaLbl: UILabel!
+    @IBOutlet weak var windLbl: UILabel!
+    @IBOutlet weak var humidityLbl: UILabel!
+    @IBOutlet weak var tempLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-   
-    var currentWeather = CurrentWeather(city: "Yelm")
-    var weeklyWeather = [DailyWeather]()
+    @IBOutlet weak var sunriseLbl: UILabel!
+    @IBOutlet weak var sunsetLbl: UILabel!
     
+    var forecastWeather = ForecastWeather(city: "Yelm")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,33 +35,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
        tableView.delegate = self
        tableView.dataSource = self
         
-//        currentWeather.downloadWeatherDetails { () -> () in
-//          print("Download Completed")
-//            
-//            print("City:        \(self.currentWeather.cityName)")
-//            print("ID:          \(self.currentWeather.cityId)")
-//            print("Longitude:   \(self.currentWeather.lon)")
-//            print("Latitude:    \(self.currentWeather.lat)")
-//            print("Humidity:    \(self.currentWeather.humidity)")
-//            print("High Temp:   \(self.currentWeather.tempMax)")
-//            print("Low Temp:    \(self.currentWeather.tempMin)")
-//            print("Temp:        \(self.currentWeather.temp)")
-//            print("Pressure:    \(self.currentWeather.pressure)")
-//            print("Sunrise:     \(self.currentWeather.sunrise)")
-//            print("Sunset:      \(self.currentWeather.sunset)")
-//            print("Summary:     \(self.currentWeather.summary)")
-//            print("Icon ID:     \(self.currentWeather.iconId)")
-//            //self.weatherIcon.image = UIImage(named: self.currentWeather.iconId)
-//      }
+        forecastWeather.downloadWeatherDetails { () -> () in
+           self.updateUI()
+            
+                   }
+            }
+    
+    func updateUI() {
+       
         
+        weatherIcon.image = UIImage(named: self.forecastWeather.currentWeather.iconId)
+        tempMaxLbl.text = forecastWeather.currentWeather.tempMax
+        tempMinLbl.text = forecastWeather.currentWeather.tempMin
+        tempLbl.text = forecastWeather.currentWeather.temp
+        windLbl.text = forecastWeather.currentWeather.windSpeed
+        hPaLbl.text = forecastWeather.currentWeather.pressure
+        humidityLbl.text = forecastWeather.currentWeather.humidity
+        sunriseLbl.text = forecastWeather.currentWeather.sunrise
+        sunsetLbl.text = forecastWeather.currentWeather.sunset
+        
+        
+        self.tableView.reloadData()
     }
+
     
     override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
         
-        let day = DailyWeather(tempMax: 180.0, tempMin: 175.2, summary: "Partly Coudy", iconID: "13n", date: 12342314)
-        let day2 = DailyWeather(tempMax: 180.0, tempMin: 175.2, summary: "Partly Coudy", iconID: "13n", date: 12342314)
-        weeklyWeather.append(day)
-        weeklyWeather.append(day2)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -64,9 +71,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCellWithIdentifier("DailyCell") as? DailyCell {
-            let dailyWeather = weeklyWeather[indexPath.row]
+            let dailyWeather = forecastWeather.weeklyWeather[indexPath.row]
+            
             cell.configureCell(dailyWeather)
             return cell
+            
         } else {
             return DailyCell()
         }        
@@ -77,7 +86,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weeklyWeather.count
+        return forecastWeather.weeklyWeather.count
     }
 
 }

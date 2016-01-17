@@ -10,6 +10,8 @@ import Foundation
 
 class DailyWeather {
     
+    private let DATE_FORMATTER = NSDateFormatter()
+    
     private var _tempMax: Double!
     private var _tempMin: Double!
     private var _summary: String!
@@ -20,8 +22,7 @@ class DailyWeather {
         if _tempMax == nil {
             return ""
         }
-        
-        return convertKtoF(_tempMax)
+        return "\(convertKtoF(_tempMax))°"
     }
     
     var tempMin: String {
@@ -29,14 +30,14 @@ class DailyWeather {
             return ""
         }
         
-        return convertKtoF(_tempMin)
+        return "\(convertKtoF(_tempMin))°"
     }
     
     var summary: String {
         if _summary == nil {
             _summary = ""
         }
-        return _summary
+        return _summary.capitalizedString
     }
     
     var iconId: String {
@@ -52,11 +53,18 @@ class DailyWeather {
             return ""
         }
         
-        return "Need to convert to Date"
+        return timeStringFromUnixTime(Double(_date))
         
     }
     
-    
+    func timeStringFromUnixTime(unixTime: Double) -> String {
+        let date = NSDate(timeIntervalSince1970: unixTime)
+        
+        DATE_FORMATTER.dateStyle = NSDateFormatterStyle.LongStyle
+        DATE_FORMATTER.timeStyle = .MediumStyle
+        return DATE_FORMATTER.stringFromDate(date)
+    }
+
     
     init(tempMax: Double, tempMin: Double, summary: String, iconID: String, date: Int) {
         _tempMax = tempMax
@@ -64,7 +72,8 @@ class DailyWeather {
         _summary = summary
         _iconId = iconID
         _date = date
+        
+        
+        
     }    
-    
-    
 }

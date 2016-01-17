@@ -12,11 +12,7 @@ import Alamofire
 
 class CurrentWeather {
     
-    private let _dateFormatter = NSDateFormatter()
-    
-    // URL
-    private var _url: NSURL
-    
+    private let DATE_FORMATTER = NSDateFormatter()
     
     // Location
     private var _cityName: String!
@@ -33,11 +29,43 @@ class CurrentWeather {
     private var _pressure: Int!
     private var _summary: String!
     private var _iconId: String!
+    private var _windSpeed: Float!
     
     
     // Time
     private var _sunset: Int!
     private var _sunrise: Int!
+    
+    init(cityName: String, cityId: Int, lon: Float, lat: Float, humidity: Int, tempMax: Double,
+        tempMin: Double, temp: Double, pressure: Int, summary: String, iconId: String,
+        sunset: Int, sunrise: Int, windSpeed: Float) {
+            
+            _cityName = cityName
+            _cityId = cityId
+            _lon = lon
+            _lat = lat
+            _humidity = humidity
+            _tempMax = tempMax
+            _tempMin = tempMin
+            _temp = temp
+            _pressure = pressure
+            _summary = summary
+            _iconId = iconId
+            _sunset = sunset
+            _sunrise = sunrise
+            _windSpeed = windSpeed
+    }
+    
+    convenience init() {
+        self.init()
+    }
+    
+    var windSpeed: String {
+        if _windSpeed == nil {
+            return ""
+        }
+        return "\(round(_windSpeed))"
+    }
     
     var iconId: String {
         if _iconId == nil {
@@ -87,21 +115,21 @@ class CurrentWeather {
         if _tempMax == nil {
             return ""
         }
-        return convertKtoF(_tempMax)
+        return "\(convertKtoF(_tempMax))°"
     }
     
     var tempMin: String {
         if _tempMin == nil {
             return ""
         }
-        return convertKtoF(_tempMin)
+        return "\(convertKtoF(_tempMin))°"
     }
     
     var temp: String {
         if _temp == nil {
             return ""
         }
-        return convertKtoF(_temp)
+        return "\(convertKtoF(_temp))°"
     }
     
     var pressure: String {
@@ -132,58 +160,11 @@ class CurrentWeather {
         return "\(timeStringFromUnixTime(Double(_sunrise)))"
     }
     
-    
-    init(city: String) {
-        _url = NSURL(string: "\(URL_BASE)\(URL_CITYNAME)\(city)\(API_KEY)")!
-    }   
-    
-    
-    func timeStringFromUnixTime(unixTime: Double) -> String {
+   func timeStringFromUnixTime(unixTime: Double) -> String {
         let date = NSDate(timeIntervalSince1970: unixTime)
         
         // Returns Date Formatted as 12 Hour Time.
-        _dateFormatter.dateFormat = "hh:mm a"
-        return _dateFormatter.stringFromDate(date)
-    }    
-    
-    func downloadWeatherDetails(completed: DownloadComplete) {
-        
-         Alamofire.request(.GET, _url).validate().responseJSON { response in
-            switch response.result {
-            case .Success:
-                if let value = response.result.value {
-                    let json = JSON(value)
-                    
-                    self._cityName = json["name"].string
-                    self._cityId = json["id"].int
-                    self._lon = json["coord"]["lon"].float
-                    self._lat = json["coord"]["lat"].float
-                    
-                    self._humidity = json["main"]["humidity"].int
-                   
-                    self._tempMax = json["main"]["temp_max"].doubleValue
-                    self._tempMin = json["main"]["temp_min"].doubleValue
-                    self._temp = json["main"]["temp"].doubleValue
-                   
-                    
-                    self._pressure = json["main"]["pressure"].int
-                    
-                    self._sunrise = json["sys"]["sunrise"].int
-                    self._sunset = json["sys"]["sunset"].int
-                    
-                    self._summary = json["weather"][0]["description"].string
-                    self._iconId = json["weather"][0]["icon"].string
-
-
-                    
-                    print("JSON: \(json)")
-                    
-                }
-            case .Failure(let error):
-                print(error)
-            }
-            
-            completed()
-        }
+        DATE_FORMATTER.dateFormat = "hh:mm a"
+        return DATE_FORMATTER.stringFromDate(date)
     }
 }
