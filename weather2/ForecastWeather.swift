@@ -69,7 +69,7 @@ class ForecastWeather {
                     self._currentWeather = CurrentWeather(cityName: cityName, cityId: cityId, lon: lon, lat: lat, humidity: humidity, tempMax: tempMax, tempMin: tempMin, temp: temp, pressure: pressure, summary: summary, iconId: iconId, sunset: sunset, sunrise: sunrise, windSpeed: windSpeed)
                     
                     
-                    print("JSON: \(json)")
+                   
                     
                 }
             case .Failure(let error):
