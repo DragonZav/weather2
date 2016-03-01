@@ -13,7 +13,7 @@ let URL_BASE = "http://api.openweathermap.org"
 let URL_CITYNAME = "/data/2.5/weather?q="
 let URL_CITYID = "/data/2.5/weather?id="
 let URL_CITYFORECAST = "/data/2.5/forecast?q="
-let API_KEY = "&APPID=d5dfbbca97307e254653f9c8ac59fd2b"
+let API_KEY = "Sorry, someone abused using my key"
 
 
 
